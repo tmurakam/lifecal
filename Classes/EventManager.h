@@ -11,6 +11,7 @@
 
 + (EventManager *)sharedInstance;
 - (void)addEvent:(int)type year:(int)year name:(NSString *)name;
+- (Event *)matchEvent:(int)type years:(int)yy;
 
 @end
 

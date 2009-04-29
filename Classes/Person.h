@@ -7,14 +7,11 @@
 
 @interface Person : NSObject {
     NSString *name;
-    SimpleDate *birth;
-    SimpleDate *wedding;
-    SimpleDate *death;
+    SimpleDate *dates[3];
 }
 
 @property(nonatomic,retain) NSString *name;
-@property(nonatomic,retain) SimpleDate *birth;
-@property(nonatomic,retain) SimpleDate *wedding;
-@property(nonatomic,retain) SimpleDate *death;
+
+- (void)setDate:(SimpleDate *)date type:(int)type;
 
 @end

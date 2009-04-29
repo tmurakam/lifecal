@@ -63,5 +63,14 @@
     [events[type] addObject:ev];
 }
 
+- (Event *)matchEvent:(int)type years:(int)yy
+{
+    for (Event *ev in events[type]) {
+        if (ev.years == yy) {
+            return ev;
+        }
+    }
+    return nil;
+}
 
 @end

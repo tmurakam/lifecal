@@ -3,6 +3,7 @@
 // PersonManager
 
 #import "PersonManager.h"
+#import "EventManager.h"
 
 @implementation PersonManager
 
@@ -25,8 +26,8 @@
     // test data
     Person *p = [[[Person alloc] init] autorelease];
     p.name = @"テストユーザ";
-    p.birth = [[[SimpleDate alloc] initWithYear:1970 month:1 day:1] autorelease];
-    p.wedding = [[[SimpleDate alloc] initWithYear:2000 month:1 day:1] autorelease];
+    [p setDate:[[[SimpleDate alloc] initWithYear:1970 month:1 day:1] autorelease] type:EV_AGE];
+    [p setDate:[[[SimpleDate alloc] initWithYear:2000 month:1 day:1] autorelease] type:EV_MARRIAGE];
 
     [persons addObject:p];
 

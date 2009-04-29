@@ -18,4 +18,13 @@
     return self;
 }
 
+- (id)initWithYear:(int)aYear month:(int)aMonth day:(int)aDay
+{
+    self = [super init];
+    year = aYear;
+    month = aMonth;
+    day = aDay;
+    return self;
+}
+
 @end

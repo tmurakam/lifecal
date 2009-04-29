@@ -10,6 +10,7 @@
 }
 
 + (PersonManager *)sharedInstance;
+- (NSMutableArray *)matchEvent:(int)year;
 
 @end
 

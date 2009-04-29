@@ -34,5 +34,15 @@
     return self;
 }
 
+// 全員分のイベントを収集する
+- (NSMutableArray *)matchEvent:(int)year
+{
+    NSMutableArray *ary = [[[NSMutableArray alloc] init] autorelease];
+    
+    for (Person *person in persons) {
+        [person matchEvent:year array:ary];
+    }
+    return ary;
+}
 
 @end

@@ -13,5 +13,6 @@
 @property(nonatomic,retain) NSString *name;
 
 - (void)setDate:(SimpleDate *)date type:(int)type;
+- (void)matchEvent:(int)year array:(NSMutableArray *)ary;
 
 @end

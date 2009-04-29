@@ -11,7 +11,8 @@
 
 
 @interface YearListViewController : UITableViewController {
-
+    int firstYear;
+    NSMutableArray *sectionTitles;
 }
 
 @end

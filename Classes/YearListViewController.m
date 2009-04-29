@@ -8,54 +8,16 @@
 //
 
 #import "YearListViewController.h"
-
+#import "PersonManager.h"
 
 @implementation YearListViewController
 
 /*
-  - (id)initWithStyle:(UITableViewStyle)style {
-  // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-  if (self = [super initWithStyle:style]) {
-  }
-  return self;
-  }
-*/
-
-/*
-  - (void)viewDidLoad {
+- (void)viewDidLoad {
   [super viewDidLoad];
 
   // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
   // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-  }
-*/
-
-/*
-  - (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
-  }
-*/
-/*
-  - (void)viewDidAppear:(BOOL)animated {
-  [super viewDidAppear:animated];
-  }
-*/
-/*
-  - (void)viewWillDisappear:(BOOL)animated {
-  [super viewWillDisappear:animated];
-  }
-*/
-/*
-  - (void)viewDidDisappear:(BOOL)animated {
-  [super viewDidDisappear:animated];
-  }
-*/
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-// Return YES for supported orientations
-return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 */
 
@@ -66,22 +28,40 @@ return (interfaceOrientation == UIInterfaceOrientationPortrait);
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+- (void)viewWillAppear:(BOOL)animated
+{
+    firstYear = 2009; // for test
+    [sectionTitles release];
+    sectionTitles = [[NSMutableArray alloc] initWithCapacity:100];
+    for (int i = 0; i < 100; i++) {
+        [sectionTitles addObject:[NSString stringWithFormat:@"%d", firstYear + i]];
+    }
+
+    [super viewWillAppear:animated];
 }
-
-
-#pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [sectionTitles count];
 }
 
+/*
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return sectionTitles;
+}
+*/
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [sectionTitles objectAtIndex:section];
+}
+    
 // Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    int year = firstYear + section;
+    NSMutableArray *events = [[PersonManager sharedInstance] matchEvent:year];
+    return events.count;
 }
 
 
@@ -96,8 +76,10 @@ return (interfaceOrientation == UIInterfaceOrientationPortrait);
         //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Set up the cell...
-	
+    int year = firstYear + indexPath.section;
+    NSMutableArray *events = [[PersonManager sharedInstance] matchEvent:year];
+    cell.text = [events objectAtIndex:indexPath.row];
+            
     return cell;
 }
 

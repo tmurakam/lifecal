@@ -19,6 +19,8 @@
 		3ED1E8C50FA8408500B7FBDA /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8C00FA8408500B7FBDA /* Event.m */; };
 		3ED1E8C60FA8408500B7FBDA /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8C20FA8408500B7FBDA /* Person.m */; };
 		3ED1E8C70FA8408500B7FBDA /* SimpleDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8C40FA8408500B7FBDA /* SimpleDate.m */; };
+		3ED1E8E40FA8876400B7FBDA /* EventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8E30FA8876400B7FBDA /* EventManager.m */; };
+		3ED1E8EB0FA8894E00B7FBDA /* PersonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8EA0FA8894E00B7FBDA /* PersonManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,10 @@
 		3ED1E8C20FA8408500B7FBDA /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		3ED1E8C30FA8408500B7FBDA /* SimpleDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDate.h; sourceTree = "<group>"; };
 		3ED1E8C40FA8408500B7FBDA /* SimpleDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDate.m; sourceTree = "<group>"; };
+		3ED1E8E20FA8876400B7FBDA /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
+		3ED1E8E30FA8876400B7FBDA /* EventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventManager.m; sourceTree = "<group>"; };
+		3ED1E8E90FA8894E00B7FBDA /* PersonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonManager.h; sourceTree = "<group>"; };
+		3ED1E8EA0FA8894E00B7FBDA /* PersonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,10 +67,14 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3ED1E8BF0FA8408500B7FBDA /* Event.h */,
-				3ED1E8C00FA8408500B7FBDA /* Event.m */,
+				3ED1E8E90FA8894E00B7FBDA /* PersonManager.h */,
+				3ED1E8EA0FA8894E00B7FBDA /* PersonManager.m */,
 				3ED1E8C10FA8408500B7FBDA /* Person.h */,
 				3ED1E8C20FA8408500B7FBDA /* Person.m */,
+				3ED1E8E20FA8876400B7FBDA /* EventManager.h */,
+				3ED1E8E30FA8876400B7FBDA /* EventManager.m */,
+				3ED1E8BF0FA8408500B7FBDA /* Event.h */,
+				3ED1E8C00FA8408500B7FBDA /* Event.m */,
 				3ED1E8C30FA8408500B7FBDA /* SimpleDate.h */,
 				3ED1E8C40FA8408500B7FBDA /* SimpleDate.m */,
 				3E266CF20FA83D2100600E44 /* YearListViewController.h */,
@@ -186,6 +196,8 @@
 				3ED1E8C50FA8408500B7FBDA /* Event.m in Sources */,
 				3ED1E8C60FA8408500B7FBDA /* Person.m in Sources */,
 				3ED1E8C70FA8408500B7FBDA /* SimpleDate.m in Sources */,
+				3ED1E8E40FA8876400B7FBDA /* EventManager.m in Sources */,
+				3ED1E8EB0FA8894E00B7FBDA /* PersonManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

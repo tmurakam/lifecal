@@ -14,4 +14,6 @@
 @property (nonatomic,assign) int month;
 @property (nonatomic,assign) int day;
 
+- (id)initWithYear:(int)aYear month:(int)aMonth day:(int)aDay;
+
 @end

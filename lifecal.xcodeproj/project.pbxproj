@@ -16,6 +16,7 @@
 		3E266CF40FA83D2100600E44 /* YearListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E266CF30FA83D2100600E44 /* YearListViewController.m */; };
 		3E266CF70FA83D4B00600E44 /* YearListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E266CF60FA83D4B00600E44 /* YearListView.xib */; };
 		3E780C061192CE140021C539 /* PersonListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E780C051192CE140021C539 /* PersonListView.xib */; };
+		3E780C431192D31B0021C539 /* PersonListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E780C421192D31B0021C539 /* PersonListViewController.m */; };
 		3ED1E8C50FA8408500B7FBDA /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8C00FA8408500B7FBDA /* Event.m */; };
 		3ED1E8C60FA8408500B7FBDA /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8C20FA8408500B7FBDA /* Person.m */; };
 		3ED1E8C70FA8408500B7FBDA /* SimpleDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8C40FA8408500B7FBDA /* SimpleDate.m */; };
@@ -37,6 +38,8 @@
 		3E266CF30FA83D2100600E44 /* YearListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearListViewController.m; sourceTree = "<group>"; };
 		3E266CF60FA83D4B00600E44 /* YearListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearListView.xib; sourceTree = "<group>"; };
 		3E780C051192CE140021C539 /* PersonListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonListView.xib; sourceTree = "<group>"; };
+		3E780C411192D31B0021C539 /* PersonListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonListViewController.h; sourceTree = "<group>"; };
+		3E780C421192D31B0021C539 /* PersonListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonListViewController.m; sourceTree = "<group>"; };
 		3EAE17330FA83AF6007CDBC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		3ED1E8BF0FA8408500B7FBDA /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		3ED1E8C00FA8408500B7FBDA /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 				3ED1E8C40FA8408500B7FBDA /* SimpleDate.m */,
 				3E266CF20FA83D2100600E44 /* YearListViewController.h */,
 				3E266CF30FA83D2100600E44 /* YearListViewController.m */,
+				3E780C411192D31B0021C539 /* PersonListViewController.h */,
+				3E780C421192D31B0021C539 /* PersonListViewController.m */,
 				1D3623240D0F684500981E51 /* lifecalAppDelegate.h */,
 				1D3623250D0F684500981E51 /* lifecalAppDelegate.m */,
 			);
@@ -198,6 +203,7 @@
 				3ED1E8C70FA8408500B7FBDA /* SimpleDate.m in Sources */,
 				3ED1E8E40FA8876400B7FBDA /* EventManager.m in Sources */,
 				3ED1E8EB0FA8894E00B7FBDA /* PersonManager.m in Sources */,
+				3E780C431192D31B0021C539 /* PersonListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

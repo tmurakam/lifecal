@@ -38,6 +38,14 @@
     [p setDate:[[[SimpleDate alloc] initWithYear:1990 month:1 day:1] autorelease] type:EV_DEATH];
     [persons addObject:p];    
 
+    // database
+    dbstmt *stmt = [Person selectAll];
+    while ([stmt step] == SQLITE_ROW) {
+        p = [[Person alloc] init];
+        [p loadRow:stmt];
+        [persons addObject:p];
+        [p release];
+    }
     return self;
 }
 

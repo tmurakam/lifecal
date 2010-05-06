@@ -4,9 +4,10 @@
 
 #import "Person.h"
 #import "EventManager.h"
+#import "Database.h"
 
 @implementation Person
-@synthesize name;
+@synthesize pkey, name;
 
 - (id)init
 {
@@ -57,6 +58,63 @@
             [ary addObject:desc];
         }
     }
+}
+
+#pragma mark Database handling
+
++ (void)checkTable
+{
+    Database *db = [Database instance];
+    dbstmt *stmt;
+    
+    stmt = [db prepare:"SELECT sql FROM sqlite_master WHERE type='table' AND name='Persons';"];
+    if ([stmt step] != SQLITE_ROW) {
+        // テーブル新規作成
+        [db exec:"CREATE TABLE Persons ("
+            "pkey INTEGER PRIMARY KEY,"
+            "name TEXT,"
+            "birth_date TEXT,"
+            "bridal_date TEXT,"
+            "death_date TEXT"
+            ");"
+         ];
+    }
+}
+
++ (dbstmt *)selectAll
+{
+    Database *db = [Database instance];
+    dbstmt *stmt;
+    
+    stmt = [db prepare:"SELECT * FROM Persons;"];
+    return stmt;
+}
+
+- (void)loadRow:(dbstmt *)stmt
+{
+    self.pkey = [stmt colInt:0];
+    self.name = [stmt colString:1];
+    dates[0] = [[SimpleDate alloc] initWithString:[stmt colString:2]];
+    dates[1] = [[SimpleDate alloc] initWithString:[stmt colString:3]];
+    dates[2] = [[SimpleDate alloc] initWithString:[stmt colString:4]];
+}
+
+- (void)insert
+{
+    // TBD
+}
+
+- (void)update
+{
+    // TBD
+}
+
+- (void)delete
+{
+    Database *db = [Database instance];
+    dbstmt *stmt = [db prepare:"DELETE FROM Persons WHERE pkey = ?;"];
+    [stmt bindInt:0 val:pkey];
+    [stmt step];
 }
 
 @end

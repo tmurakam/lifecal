@@ -27,4 +27,15 @@
     return self;
 }
 
+- (int)compare:(SimpleDate *)d
+{
+    if (year != d.year) {
+        return year - d.year;
+    }
+    if (month != d.month) {
+        return month - d.month;
+    }
+    return day - d.day;
+}
+
 @end

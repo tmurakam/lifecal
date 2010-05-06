@@ -15,5 +15,6 @@
 @property (nonatomic,assign) int day;
 
 - (id)initWithYear:(int)aYear month:(int)aMonth day:(int)aDay;
+- (int)compare:(SimpleDate *)d;
 
 @end

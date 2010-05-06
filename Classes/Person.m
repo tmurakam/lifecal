@@ -41,11 +41,15 @@
 
     for (i = 0; i < 3; i++) {
         if (dates[i] == nil) continue;
+        
+        if (i != EV_DEATH && dates[EV_DEATH] != nil) {
+            if (year >= dates[EV_DEATH].year) {
+                // すでに死亡している場合は年齢・結婚イベントを出さない
+                continue;
+            }
+        }
 
         yy = year - dates[i].year;
-        if (i == EV_AGE) {
-            yy++; // 数え年
-        }
 
         e = [em matchEvent:i years:yy];
         if (e) {

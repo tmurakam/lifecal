@@ -16,5 +16,8 @@
 @property(nonatomic, assign) int years;
 @property(nonatomic, retain) NSString *name;
 
++ (NSArray *)getEventArray:(int)type;
++ (void)_addEvent:(NSMutableArray*)ary year:(int)year name:(NSString *)name;
+
 @end
 

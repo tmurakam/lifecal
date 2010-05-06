@@ -7,7 +7,7 @@
 //
 
 #import "PersonListViewController.h"
-
+#import "PersonManager.h"
 
 @implementation PersonListViewController
 
@@ -19,7 +19,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
     if ((self = [super initWithStyle:style])) {
-    }
+ }
     return self;
 }
 */
@@ -27,23 +27,23 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    //self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-*/
+    self.navigationItem.leftBarButtonItem = [self editButtonItem];
 
-/*
+    UIBarButtonItem *plusButton = [[UIBarButtonItem alloc]
+                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                   target:self action:@selector(addPerson)];
+    self.navigationItem.rightBarButtonItem = plusButton;
+    [plusButton release];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
-*/
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -79,7 +79,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    return [[PersonManager sharedInstance] count];
 }
 
 
@@ -93,7 +93,8 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+    Person *person = [[PersonManager sharedInstance] objectAtIndex:indexPath.row];
+    cell.textLabel.text = person.name;
     
     return cell;
 }
@@ -153,6 +154,12 @@
 	 */
 }
 
+
+#pragma mark -
+#pragma mark Event handling
+- (void)addPerson
+{
+}
 
 #pragma mark -
 #pragma mark Memory management

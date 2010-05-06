@@ -78,7 +78,7 @@
     
     int year = firstYear + indexPath.section;
     NSMutableArray *events = [[PersonManager sharedInstance] matchEvent:year];
-    cell.text = [events objectAtIndex:indexPath.row];
+    cell.textLabel.text = [events objectAtIndex:indexPath.row];
             
     return cell;
 }

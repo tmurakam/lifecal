@@ -10,7 +10,8 @@
 
 
 @interface PersonListViewController : UITableViewController {
-
 }
+
+- (void)addPerson;
 
 @end

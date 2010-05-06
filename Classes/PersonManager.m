@@ -41,6 +41,16 @@
     return self;
 }
 
+- (int)count
+{
+    return [persons count];
+}
+
+- (Person *)objectAtIndex:(int)idx
+{
+    return [persons objectAtIndex:idx];
+}
+
 // 全員分のイベントを収集する
 - (NSMutableArray *)matchEvent:(int)year
 {

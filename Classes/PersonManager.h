@@ -12,5 +12,8 @@
 + (PersonManager *)sharedInstance;
 - (NSMutableArray *)matchEvent:(int)year;
 
+- (int)count;
+- (Person *)objectAtIndex:(int)idx;
+
 @end
 

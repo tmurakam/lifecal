@@ -1,5 +1,5 @@
 Person
-        string: name
-        date: birth_date
-        date: bridal_date
-        date: death_date
+        TEXT: name
+        DATE: birth_date
+        DATE: bridal_date
+        DATE: death_date

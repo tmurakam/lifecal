@@ -7,6 +7,9 @@
 //
 
 #import "PersonViewController.h"
+#import "PersonManager.h"
+
+#import "GenEditTextViewController.h"
 #import "EditDateViewController.h"
 
 @implementation PersonViewController
@@ -164,10 +167,14 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSDate *date;
+    GenEditTextViewController *editTextVc;
     
     switch (indexPath.row) {
         case 0:
-            return; // not yet
+            editTextVc = [GenEditTextViewController genEditTextViewController:self title:@"名前" identifier:0];
+            editTextVc.text = person.name;
+            [self.navigationController pushViewController:editTextVc animated:YES];
+            return;
             
         case 1:
             date = person.birth_date;
@@ -198,8 +205,16 @@
 - (void)savePerson
 {
     [person save];
+    
+    [[PersonManager sharedInstance] reload];
 
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)genEditTextViewChanged:(GenEditTextViewController *)vc identifier:(int)id
+{
+    person.name = vc.text;
+    [self.tableView reloadData];
 }
 
 - (void)editDateViewChanged:(EditDateViewController *)vc

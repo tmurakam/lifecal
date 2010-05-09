@@ -99,7 +99,7 @@
             comp = [greg components:NSYearCalendarUnit fromDate:person.birth_date];
             birth_year = [comp year];
         }
-        if (person.birth_date != nil) {
+        if (person.marriage_date != nil) {
             comp = [greg components:NSYearCalendarUnit fromDate:person.marriage_date];
             marriage_year = [comp year];
         }
@@ -108,7 +108,7 @@
             death_year = [comp year];
         }
         
-        NSLog(@"%d %d %d", birth_year, marriage_year, death_year);
+        //NSLog(@"%d %d %d", birth_year, marriage_year, death_year);
         
         if (death_year < 0 || year <= death_year) {
             // 年齢

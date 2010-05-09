@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Person.h"
+#import "GenEditTextViewController.h"
 #import "EditDateViewController.h"
 
-@interface PersonViewController : UITableViewController <EditDateViewDelegate> {
+@interface PersonViewController : UITableViewController <GenEditTextViewDelegate, EditDateViewDelegate> {
     Person *person;
     
     int currentEditingRow;

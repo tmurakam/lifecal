@@ -157,6 +157,11 @@
 #pragma mark Event handling
 - (void)addPerson
 {
+    PersonViewController *vc = [[PersonViewController alloc] initWithNibName:@"PersonView" bundle:nil];
+    vc.person = [[[Person alloc] init] autorelease];
+
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 #pragma mark -

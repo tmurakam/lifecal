@@ -89,8 +89,8 @@
 - (void)commitTransaction;
 - (void)rollbackTransaction;
 
-- (NSString *)dbPath;
-- (BOOL)open;
+- (NSString *)dbPath:(NSString *)dbname;
+- (BOOL)open:(NSString *)dbname;
 
 // utilities
 - (NSDate*)dateFromString:(NSString *)str;

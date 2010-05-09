@@ -197,7 +197,7 @@ static Database *theDatabase = nil;
 {
     if (!theDatabase) {
         theDatabase = [[Database alloc] init];
-        [theDatabase open];
+        [theDatabase open:@"lifecal.db"];
     }
     return theDatabase;
 }
@@ -248,12 +248,12 @@ static Database *theDatabase = nil;
 
    @return Returns YES if database exists, otherwise create database and returns NO.
 */
-- (BOOL)open
+- (BOOL)open:(NSString *)dbname
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
 
     // Load from DB
-    NSString *dbPath = [self dbPath];
+    NSString *dbPath = [self dbPath:dbname];
     BOOL isExistedDb = [fileManager fileExistsAtPath:dbPath];
 
     if (sqlite3_open([dbPath UTF8String], &handle) != 0) {
@@ -337,12 +337,12 @@ static Database *theDatabase = nil;
 /**
    Return database file name
 */
-- (NSString*)dbPath
+- (NSString*)dbPath:(NSString *)dbname
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
     NSString *dataDir = [paths objectAtIndex:0];
-    NSString *dbPath = [dataDir stringByAppendingPathComponent:@"main.db"];
+    NSString *dbPath = [dataDir stringByAppendingPathComponent:dbname];
     NSLog(@"dbPath = %@", dbPath);
 
     return dbPath;

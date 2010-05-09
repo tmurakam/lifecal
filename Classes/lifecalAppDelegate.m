@@ -20,7 +20,7 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
     // Initialize database
     Database *db = [Database instance];
-    [db open];
+    [db open:@"lifecal.db"];
     
     // migrate tables
     [Person migrate];

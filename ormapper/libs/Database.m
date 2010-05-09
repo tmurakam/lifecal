@@ -117,8 +117,12 @@
 */
 - (void)bindDate:(int)idx val:(NSDate*)date
 {
-    NSString *str = [[Database instance] stringFromDate:date];
-    sqlite3_bind_text(stmt, idx+1, [str UTF8String], -1, SQLITE_TRANSIENT);
+    NSString *str;
+    
+    if (date != NULL) {
+        str = [[Database instance] stringFromDate:date];
+        sqlite3_bind_text(stmt, idx+1, [str UTF8String], -1, SQLITE_TRANSIENT);
+    }
 }
 
 /**
@@ -166,7 +170,7 @@
 {
     NSDate *date = nil;
     NSString *ds = [self colString:idx];
-    if (ds) {
+    if (ds && [ds length] > 0) {
         date = [[Database instance] dateFromString:ds];
     }
     return date;
@@ -214,6 +218,8 @@ static Database *theDatabase = nil;
     }
 	
     dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone: [NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+    [dateFormatter setDateFormat: @"yyyyMMddHHmmss"];
 
     // Set US locale, because JP locale for date formatter is buggy,
     // especially for 12 hour settings.
@@ -352,7 +358,8 @@ static Database *theDatabase = nil;
 
 - (NSString *)stringFromDate:(NSDate *)date
 {
-    return [dateFormatter stringFromDate:date];
+    NSString *str = [dateFormatter stringFromDate:date];
+    return str;
 }
 
 @end

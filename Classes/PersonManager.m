@@ -24,6 +24,7 @@
 {
     self = [super init];
 
+    [Person delete_all];
     persons = [Person find_all];
 
     if ([persons count] == 0) {
@@ -54,8 +55,11 @@
         [p save];
         [p release];            
 
+        // reload
         persons = [Person find_all];
     }
+
+    [persons retain];
 
     return self;
 }
@@ -79,34 +83,52 @@
     NSCalendar *greg = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
     
     for (Person *person in persons) {
-        int yy;
+        int yy, birth_year = -1, marriage_year = -1, death_year = -1;
         Event *e;
-
-        NSDateComponents *birth = [greg components:NSYearCalendarUnit fromDate:person.birth_date];
-        NSDateComponents *marriage = [greg components:NSYearCalendarUnit fromDate:person.marriage_date];
-        NSDateComponents *death = [greg components:NSYearCalendarUnit fromDate:person.death_date];
+        NSDateComponents *comp;
         
-        if (year < death.year) {
+        if (person.birth_date != nil) {
+            comp = [greg components:NSYearCalendarUnit fromDate:person.birth_date];
+            birth_year = [comp year];
+        }
+        if (person.birth_date != nil) {
+            comp = [greg components:NSYearCalendarUnit fromDate:person.marriage_date];
+            marriage_year = [comp year];
+        }
+        if (person.death_date != nil) {
+            comp = [greg components:NSYearCalendarUnit fromDate:person.death_date];
+            death_year = [comp year];
+        }
+        
+        NSLog(@"%d %d %d", birth_year, marriage_year, death_year);
+        
+        if (death_year < 0 || year <= death_year) {
             // 年齢
-            yy = year - birth.year; 
-            e = [em matchEvent:EV_AGE years:yy];
-            if (e) {
-                [ary addObject:[NSString stringWithFormat:@"%@ : %@", person.name, e.name]];
+            if (birth_year > 0) {
+                yy = year - birth_year; 
+                e = [em matchEvent:EV_AGE years:yy];
+                if (e) {
+                    [ary addObject:[NSString stringWithFormat:@"%@ : %@", person.name, e.name]];
+                }
             }
             
             // 結婚
-            yy = year - marriage.year;
-            e = [em matchEvent:EV_MARRIAGE years:yy];
-            if (e) {
-                [ary addObject:[NSString stringWithFormat:@"%@ : %@", person.name, e.name]];
+            if (marriage_year > 0) {
+                yy = year - marriage_year;
+                e = [em matchEvent:EV_MARRIAGE years:yy];
+                if (e) {
+                    [ary addObject:[NSString stringWithFormat:@"%@ : %@", person.name, e.name]];
+                }
             }
         }
 
         // 死亡
-        yy = year - death.year;
-        e = [em matchEvent:EV_DEATH years:yy];
-        if (e) {
-            [ary addObject:[NSString stringWithFormat:@"%@ : %@", person.name, e.name]];
+        if (death_year > 0) {
+            yy = year - death_year;
+            e = [em matchEvent:EV_DEATH years:yy];
+            if (e) {
+                [ary addObject:[NSString stringWithFormat:@"%@ : %@", person.name, e.name]];
+            }
         }
     }
     return ary;

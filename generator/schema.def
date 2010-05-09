@@ -1,5 +1,0 @@
-Person
-        TEXT: name
-        DATE: birth_date
-        DATE: bridal_date
-        DATE: death_date

@@ -8,6 +8,7 @@
 
 #import "PersonListViewController.h"
 #import "PersonManager.h"
+#import "PersonViewController.h"
 
 @implementation PersonListViewController
 
@@ -144,14 +145,11 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+    PersonViewController *vc = [[PersonViewController alloc] initWithNibName:@"PersonView" bundle:nil];
+    vc.person = [[PersonManager sharedInstance] objectAtIndex:indexPath.row];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 

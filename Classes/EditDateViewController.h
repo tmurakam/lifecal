@@ -15,7 +15,7 @@
 @end
 
 @interface EditDateViewController : UIViewController {
-    IBOutlet UIDatePicker *UIdatePicker;
+    IBOutlet UIDatePicker *datePicker;
     
     id<EditDateViewDelegate> delegate;
     NSDate *date;

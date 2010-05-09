@@ -37,6 +37,7 @@
         [sectionTitles addObject:[NSString stringWithFormat:@"%d", firstYear + i]];
     }
 
+    [self.tableView reloadData];
     [super viewWillAppear:animated];
 }
 

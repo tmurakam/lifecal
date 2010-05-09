@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Person.h"
+#import "EditDateViewController.h"
 
-@interface PersonViewController : UITableViewController {
+@interface PersonViewController : UITableViewController <EditDateViewDelegate> {
     Person *person;
+    
+    int currentEditingRow;
 }
 
 @property(nonatomic,retain) Person *person;

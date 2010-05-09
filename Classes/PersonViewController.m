@@ -7,7 +7,7 @@
 //
 
 #import "PersonViewController.h"
-
+#import "EditDateViewController.h"
 
 @implementation PersonViewController
 
@@ -16,17 +16,15 @@
 #pragma mark -
 #pragma mark View lifecycle
 
-/*
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc]
+                                   initWithBarButtonSystemItem:UIBarButtonSystemItemSave
+                                   target:self action:@selector(savePerson)];
+    self.navigationItem.rightBarButtonItem = saveButton;
+    [saveButton release];
 }
-*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -93,20 +91,23 @@
             
         case 1:
             cell.textLabel.text = @"生年月日";
+            date = person.birth_date;
             break;
             
         case 2:
             cell.textLabel.text = @"結婚日";
+            date = person.marriage_date;
             break;
             
         case 3:
             cell.textLabel.text = @"死亡日";
+            date = person.death_date;
             break;
     }
 
     if (date != nil) {
         NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
-        [dateFormatter setTimeZone: [NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+        //[dateFormatter setTimeZone: [NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
         [dateFormatter setDateFormat: @"yyyy/MM/dd"];
         
         cell.detailTextLabel.text = [dateFormatter stringFromDate:date];
@@ -160,16 +161,65 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSDate *date;
+    
+    switch (indexPath.row) {
+        case 0:
+            return; // not yet
+            
+        case 1:
+            date = person.birth_date;
+            break;
+            
+        case 2:
+            date = person.marriage_date;
+            break;
+            
+        case 3:
+            date = person.death_date;
+            break;
+    }
+    
+    if (indexPath.row >= 1) {
+        currentEditingRow = indexPath.row;
+        
+        EditDateViewController *vc = [[EditDateViewController alloc] initWithNibName:@"EditDateView" bundle:nil];
+        vc.date = date;
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
+        [vc release];
+    }
 }
 
+#pragma mark -
+#pragma mark Event handling
+- (void)savePerson
+{
+    [person save];
+
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)editDateViewChanged:(EditDateViewController *)vc
+{
+    NSDate *date = vc.date;
+    
+    switch (currentEditingRow) {
+        case 1:
+            person.birth_date = date;
+            break;
+        case 2:
+            person.marriage_date = date;
+            break;
+        case 3:
+            person.death_date = date;
+            break;
+    }
+    
+    [self.tableView reloadData];
+}
 
 #pragma mark -
 #pragma mark Memory management

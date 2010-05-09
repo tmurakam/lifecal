@@ -197,7 +197,6 @@ static Database *theDatabase = nil;
 {
     if (!theDatabase) {
         theDatabase = [[Database alloc] init];
-        [theDatabase open:@"lifecal.db"];
     }
     return theDatabase;
 }

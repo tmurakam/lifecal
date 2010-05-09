@@ -24,6 +24,8 @@
 		3EFE1C1411963C6B00BDB694 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE1C1111963C6B00BDB694 /* Database.m */; };
 		3EFE1C1511963C6B00BDB694 /* ORRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE1C1311963C6B00BDB694 /* ORRecord.m */; };
 		3EFE1C1811963C7500BDB694 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE1C1711963C7500BDB694 /* Person.m */; };
+		3EFE1D711196708A00BDB694 /* PersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE1D6F1196708A00BDB694 /* PersonViewController.m */; };
+		3EFE1D721196708A00BDB694 /* PersonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EFE1D701196708A00BDB694 /* PersonView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,9 @@
 		3EFE1C1311963C6B00BDB694 /* ORRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRecord.m; sourceTree = "<group>"; };
 		3EFE1C1611963C7500BDB694 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		3EFE1C1711963C7500BDB694 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		3EFE1D6E1196708A00BDB694 /* PersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonViewController.h; sourceTree = "<group>"; };
+		3EFE1D6F1196708A00BDB694 /* PersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonViewController.m; sourceTree = "<group>"; };
+		3EFE1D701196708A00BDB694 /* PersonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +126,7 @@
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				3E266CF60FA83D4B00600E44 /* YearListView.xib */,
 				3E780C051192CE140021C539 /* PersonListView.xib */,
+				3EFE1D701196708A00BDB694 /* PersonView.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -156,6 +162,8 @@
 				3E266CF30FA83D2100600E44 /* YearListViewController.m */,
 				3E780C411192D31B0021C539 /* PersonListViewController.h */,
 				3E780C421192D31B0021C539 /* PersonListViewController.m */,
+				3EFE1D6E1196708A00BDB694 /* PersonViewController.h */,
+				3EFE1D6F1196708A00BDB694 /* PersonViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
 				3E266CF70FA83D4B00600E44 /* YearListView.xib in Resources */,
 				3E780C061192CE140021C539 /* PersonListView.xib in Resources */,
+				3EFE1D721196708A00BDB694 /* PersonView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +255,7 @@
 				3EFE1C1411963C6B00BDB694 /* Database.m in Sources */,
 				3EFE1C1511963C6B00BDB694 /* ORRecord.m in Sources */,
 				3EFE1C1811963C7500BDB694 /* Person.m in Sources */,
+				3EFE1D711196708A00BDB694 /* PersonViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

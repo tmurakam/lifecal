@@ -24,6 +24,7 @@
 {
     self = [super init];
 
+#if 0
     [Person delete_all];
     persons = [Person find_all];
 
@@ -58,10 +59,17 @@
         // reload
         persons = [Person find_all];
     }
-
-    [persons retain];
+#endif
+    
+    [self reload];
 
     return self;
+}
+
+- (void)reload
+{
+    [persons release];
+    persons = [[Person find_all] retain];
 }
 
 - (int)count

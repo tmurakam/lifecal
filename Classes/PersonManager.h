@@ -10,6 +10,7 @@
 }
 
 + (PersonManager *)sharedInstance;
+- (void)reload;
 - (NSMutableArray *)matchEvent:(int)year;
 
 - (int)count;

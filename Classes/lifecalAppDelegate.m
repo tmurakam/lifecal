@@ -8,7 +8,8 @@
 //
 
 #import "lifecalAppDelegate.h"
-
+#import "Database.h"
+#import "Person.h"
 
 @implementation lifecalAppDelegate
 
@@ -17,6 +18,12 @@
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
+    // Initialize database
+    Database *db = [Database instance];
+    [db open:@"lifecal.db"];
+    
+    // migrate tables
+    [Person migrate];
     
     // Add the tab bar controller's current view as a subview of the window
     [window addSubview:tabBarController.view];

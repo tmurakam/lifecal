@@ -1,8 +1,8 @@
 // -*-  Mode:ObjC; c-basic-offset:4; tab-width:8; indent-tabs-mode:nil -*-
 /*
-  ItemShelf for iPhone/iPod touch
+  O/R Mapper library for iPhone
 
-  Copyright (c) 2008, ItemShelf Development Team. All rights reserved.
+  Copyright (c) 2010, Takuya Murakami. All rights reserved.
 
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions are
@@ -32,8 +32,7 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-// データベースアクセス用のクラス
-// sqlite3 のラッパ
+// sqlite3 wrapper
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
@@ -56,13 +55,13 @@
 - (void)bindDouble:(int)idx val:(double)val;
 - (void)bindCString:(int)idx val:(const char *)val;
 - (void)bindString:(int)idx val:(NSString*)val;
-//- (void)bindDate:(int)idx val:(NSDate*)date;
+- (void)bindDate:(int)idx val:(NSDate*)date;
 
 - (int)colInt:(int)idx;
 - (double)colDouble:(int)idx;
 - (const char*)colCString:(int)idx;
 - (NSString*)colString:(int)idx;
-//- (NSDate*)colDate:(int)idx;
+- (NSDate*)colDate:(int)idx;
 @end
 
 /**
@@ -70,6 +69,8 @@
 */
 @interface Database : NSObject {
     sqlite3 *handle; ///< Database handle
+
+    NSDateFormatter *dateFormatter;
 }
 
 @property(nonatomic,readonly) sqlite3 *handle;
@@ -80,14 +81,19 @@
 - (id)init;
 - (void)dealloc;
 
-- (void)exec:(const char *)sql;
-- (dbstmt*)prepare:(const char *)sql;
+- (void)exec:(NSString *)sql;
+- (dbstmt*)prepare:(NSString *)sql;
 - (int)lastInsertRowId;
 
 - (void)beginTransaction;
 - (void)commitTransaction;
+- (void)rollbackTransaction;
 
-- (NSString *)dbPath;
-- (BOOL)open;
+- (NSString *)dbPath:(NSString *)dbname;
+- (BOOL)open:(NSString *)dbname;
+
+// utilities
+- (NSDate*)dateFromString:(NSString *)str;
+- (NSString *)stringFromDate:(NSDate*)date;
 
 @end

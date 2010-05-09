@@ -8,7 +8,7 @@
 @synthesize name;
 @synthesize register_date;
 @synthesize birth_date;
-@synthesize bridal_date;
+@synthesize marriage_date;
 @synthesize death_date;
 
 - (id)init
@@ -22,7 +22,7 @@
     [name release];
     [register_date release];
     [birth_date release];
-    [bridal_date release];
+    [marriage_date release];
     [death_date release];
     [super dealloc];
 }
@@ -39,7 +39,7 @@
         @"name", @"TEXT",
         @"register_date", @"DATE",
         @"birth_date", @"DATE",
-        @"bridal_date", @"DATE",
+        @"marriage_date", @"DATE",
         @"death_date", @"DATE",
         nil];
 
@@ -102,7 +102,7 @@
     self.name = [stmt colString:1];
     self.register_date = [stmt colDate:2];
     self.birth_date = [stmt colDate:3];
-    self.bridal_date = [stmt colDate:4];
+    self.marriage_date = [stmt colDate:4];
     self.death_date = [stmt colDate:5];
 
     isInserted = YES;
@@ -126,7 +126,7 @@
     [stmt bindString:0 val:name];
     [stmt bindDate:1 val:register_date];
     [stmt bindDate:2 val:birth_date];
-    [stmt bindDate:3 val:bridal_date];
+    [stmt bindDate:3 val:marriage_date];
     [stmt bindDate:4 val:death_date];
     [stmt step];
 
@@ -147,13 +147,13 @@
         "name = ?"
         ",register_date = ?"
         ",birth_date = ?"
-        ",bridal_date = ?"
+        ",marriage_date = ?"
         ",death_date = ?"
         " WHERE id = ?;"];
     [stmt bindString:0 val:name];
     [stmt bindDate:1 val:register_date];
     [stmt bindDate:2 val:birth_date];
-    [stmt bindDate:3 val:bridal_date];
+    [stmt bindDate:3 val:marriage_date];
     [stmt bindDate:4 val:death_date];
     [stmt bindInt:5 val:pid];
 

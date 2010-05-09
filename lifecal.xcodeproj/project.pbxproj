@@ -15,15 +15,15 @@
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
 		3E266CF40FA83D2100600E44 /* YearListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E266CF30FA83D2100600E44 /* YearListViewController.m */; };
 		3E266CF70FA83D4B00600E44 /* YearListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E266CF60FA83D4B00600E44 /* YearListView.xib */; };
-		3E42663711931CF700BF93D4 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E42663611931CF700BF93D4 /* Database.m */; };
 		3E42665211931E7200BF93D4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E42665111931E7200BF93D4 /* libsqlite3.dylib */; };
 		3E780C061192CE140021C539 /* PersonListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E780C051192CE140021C539 /* PersonListView.xib */; };
 		3E780C431192D31B0021C539 /* PersonListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E780C421192D31B0021C539 /* PersonListViewController.m */; };
 		3ED1E8C50FA8408500B7FBDA /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8C00FA8408500B7FBDA /* Event.m */; };
-		3ED1E8C60FA8408500B7FBDA /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8C20FA8408500B7FBDA /* Person.m */; };
-		3ED1E8C70FA8408500B7FBDA /* SimpleDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8C40FA8408500B7FBDA /* SimpleDate.m */; };
 		3ED1E8E40FA8876400B7FBDA /* EventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8E30FA8876400B7FBDA /* EventManager.m */; };
 		3ED1E8EB0FA8894E00B7FBDA /* PersonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1E8EA0FA8894E00B7FBDA /* PersonManager.m */; };
+		3EFE1C1411963C6B00BDB694 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE1C1111963C6B00BDB694 /* Database.m */; };
+		3EFE1C1511963C6B00BDB694 /* ORRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE1C1311963C6B00BDB694 /* ORRecord.m */; };
+		3EFE1C1811963C7500BDB694 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE1C1711963C7500BDB694 /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +39,6 @@
 		3E266CF20FA83D2100600E44 /* YearListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearListViewController.h; sourceTree = "<group>"; };
 		3E266CF30FA83D2100600E44 /* YearListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearListViewController.m; sourceTree = "<group>"; };
 		3E266CF60FA83D4B00600E44 /* YearListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearListView.xib; sourceTree = "<group>"; };
-		3E42663511931CF700BF93D4 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
-		3E42663611931CF700BF93D4 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		3E42665111931E7200BF93D4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		3E780C051192CE140021C539 /* PersonListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonListView.xib; sourceTree = "<group>"; };
 		3E780C411192D31B0021C539 /* PersonListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonListViewController.h; sourceTree = "<group>"; };
@@ -48,14 +46,16 @@
 		3EAE17330FA83AF6007CDBC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		3ED1E8BF0FA8408500B7FBDA /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		3ED1E8C00FA8408500B7FBDA /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		3ED1E8C10FA8408500B7FBDA /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		3ED1E8C20FA8408500B7FBDA /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		3ED1E8C30FA8408500B7FBDA /* SimpleDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDate.h; sourceTree = "<group>"; };
-		3ED1E8C40FA8408500B7FBDA /* SimpleDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDate.m; sourceTree = "<group>"; };
 		3ED1E8E20FA8876400B7FBDA /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
 		3ED1E8E30FA8876400B7FBDA /* EventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventManager.m; sourceTree = "<group>"; };
 		3ED1E8E90FA8894E00B7FBDA /* PersonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonManager.h; sourceTree = "<group>"; };
 		3ED1E8EA0FA8894E00B7FBDA /* PersonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonManager.m; sourceTree = "<group>"; };
+		3EFE1C1011963C6B00BDB694 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		3EFE1C1111963C6B00BDB694 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
+		3EFE1C1211963C6B00BDB694 /* ORRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORRecord.h; sourceTree = "<group>"; };
+		3EFE1C1311963C6B00BDB694 /* ORRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORRecord.m; sourceTree = "<group>"; };
+		3EFE1C1611963C7500BDB694 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		3EFE1C1711963C7500BDB694 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +95,7 @@
 		29B97314FDCFA39411CA2CEA /* lifecal */ = {
 			isa = PBXGroup;
 			children = (
+				3EFE1C0E11963C3500BDB694 /* ormapper */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -138,18 +139,12 @@
 		3E42663111931CB500BF93D4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3E42663511931CF700BF93D4 /* Database.h */,
-				3E42663611931CF700BF93D4 /* Database.m */,
 				3ED1E8E90FA8894E00B7FBDA /* PersonManager.h */,
 				3ED1E8EA0FA8894E00B7FBDA /* PersonManager.m */,
-				3ED1E8C10FA8408500B7FBDA /* Person.h */,
-				3ED1E8C20FA8408500B7FBDA /* Person.m */,
 				3ED1E8E20FA8876400B7FBDA /* EventManager.h */,
 				3ED1E8E30FA8876400B7FBDA /* EventManager.m */,
 				3ED1E8BF0FA8408500B7FBDA /* Event.h */,
 				3ED1E8C00FA8408500B7FBDA /* Event.m */,
-				3ED1E8C30FA8408500B7FBDA /* SimpleDate.h */,
-				3ED1E8C40FA8408500B7FBDA /* SimpleDate.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -163,6 +158,27 @@
 				3E780C421192D31B0021C539 /* PersonListViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3EFE1C0E11963C3500BDB694 /* ormapper */ = {
+			isa = PBXGroup;
+			children = (
+				3EFE1C1611963C7500BDB694 /* Person.h */,
+				3EFE1C1711963C7500BDB694 /* Person.m */,
+				3EFE1C0F11963C3B00BDB694 /* libs */,
+			);
+			path = ormapper;
+			sourceTree = "<group>";
+		};
+		3EFE1C0F11963C3B00BDB694 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				3EFE1C1011963C6B00BDB694 /* Database.h */,
+				3EFE1C1111963C6B00BDB694 /* Database.m */,
+				3EFE1C1211963C6B00BDB694 /* ORRecord.h */,
+				3EFE1C1311963C6B00BDB694 /* ORRecord.m */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,12 +240,12 @@
 				1D3623260D0F684500981E51 /* lifecalAppDelegate.m in Sources */,
 				3E266CF40FA83D2100600E44 /* YearListViewController.m in Sources */,
 				3ED1E8C50FA8408500B7FBDA /* Event.m in Sources */,
-				3ED1E8C60FA8408500B7FBDA /* Person.m in Sources */,
-				3ED1E8C70FA8408500B7FBDA /* SimpleDate.m in Sources */,
 				3ED1E8E40FA8876400B7FBDA /* EventManager.m in Sources */,
 				3ED1E8EB0FA8894E00B7FBDA /* PersonManager.m in Sources */,
 				3E780C431192D31B0021C539 /* PersonListViewController.m in Sources */,
-				3E42663711931CF700BF93D4 /* Database.m in Sources */,
+				3EFE1C1411963C6B00BDB694 /* Database.m in Sources */,
+				3EFE1C1511963C6B00BDB694 /* ORRecord.m in Sources */,
+				3EFE1C1811963C7500BDB694 /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

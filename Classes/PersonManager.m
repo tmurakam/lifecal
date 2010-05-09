@@ -2,7 +2,10 @@
 
 // PersonManager
 
+#import <UIKit/UIKit.h>
+
 #import "PersonManager.h"
+#import "Person.h"
 #import "EventManager.h"
 
 @implementation PersonManager
@@ -21,31 +24,39 @@
 {
     self = [super init];
 
-    persons = [[NSMutableArray alloc] init];
+    persons = [Person find_all];
 
-    // test data
-    Person *p = [[[Person alloc] init] autorelease];
-    p.name = @"TM";
-    [p setDate:[[[SimpleDate alloc] initWithYear:1970 month:1 day:1] autorelease] type:EV_AGE];
-    [p setDate:[[[SimpleDate alloc] initWithYear:2000 month:1 day:1] autorelease] type:EV_MARRIAGE];
-    //[p setDate:[[[SimpleDate alloc] initWithYear:2070 month:1 day:1] autorelease] type:EV_DEATH];
-    [persons addObject:p];
-    
-    p = [[[Person alloc] init] autorelease];
-    p.name = @"KM";
-    [p setDate:[[[SimpleDate alloc] initWithYear:1944 month:1 day:1] autorelease] type:EV_AGE];
-    [p setDate:[[[SimpleDate alloc] initWithYear:1970 month:1 day:1] autorelease] type:EV_MARRIAGE];
-    [p setDate:[[[SimpleDate alloc] initWithYear:1990 month:1 day:1] autorelease] type:EV_DEATH];
-    [persons addObject:p];    
-
-    // database
-    dbstmt *stmt = [Person selectAll];
-    while ([stmt step] == SQLITE_ROW) {
+    if ([persons count] == 0) {
+        Person *p;
+        NSDateComponents *comps = [[[NSDateComponents alloc] init] autorelease];
+        NSCalendar *cal = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+        
+        // test data
         p = [[Person alloc] init];
-        [p loadRow:stmt];
-        [persons addObject:p];
+        p.name = @"TM";
+        p.register_date = [NSDate date];
+        comps.year = 1970; comps.month = 12; comps.day = 23;
+        p.birth_date = [cal dateFromComponents:comps];
+        comps.year = 2005; comps.month = 1; comps.day = 1;
+        p.marriage_date = [cal dateFromComponents:comps];
+        [p save];
         [p release];
+
+        p = [[Person alloc] init];
+        p.name = @"KM";
+        p.register_date = [NSDate date];
+        comps.year = 1944; comps.month = 2; comps.day = 20;
+        p.birth_date = [cal dateFromComponents:comps];
+        comps.year = 1970; comps.month = 4; comps.day = 1;
+        p.marriage_date = [cal dateFromComponents:comps];
+        comps.year = 1990; comps.month = 10; comps.day = 1;
+        p.death_date = [cal dateFromComponents:comps];
+        [p save];
+        [p release];            
+
+        persons = [Person find_all];
     }
+
     return self;
 }
 
@@ -63,9 +74,40 @@
 - (NSMutableArray *)matchEvent:(int)year
 {
     NSMutableArray *ary = [[[NSMutableArray alloc] init] autorelease];
+    EventManager *em = [EventManager sharedInstance];
+    
+    NSCalendar *greg = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
     
     for (Person *person in persons) {
-        [person matchEvent:year array:ary];
+        int yy;
+        Event *e;
+
+        NSDateComponents *birth = [greg components:NSYearCalendarUnit fromDate:person.birth_date];
+        NSDateComponents *marriage = [greg components:NSYearCalendarUnit fromDate:person.marriage_date];
+        NSDateComponents *death = [greg components:NSYearCalendarUnit fromDate:person.death_date];
+        
+        if (year < death.year) {
+            // 年齢
+            yy = year - birth.year; 
+            e = [em matchEvent:EV_AGE years:yy];
+            if (e) {
+                [ary addObject:[NSString stringWithFormat:@"%@ : %@", person.name, e.name]];
+            }
+            
+            // 結婚
+            yy = year - marriage.year;
+            e = [em matchEvent:EV_MARRIAGE years:yy];
+            if (e) {
+                [ary addObject:[NSString stringWithFormat:@"%@ : %@", person.name, e.name]];
+            }
+        }
+
+        // 死亡
+        yy = year - death.year;
+        e = [em matchEvent:EV_DEATH years:yy];
+        if (e) {
+            [ary addObject:[NSString stringWithFormat:@"%@ : %@", person.name, e.name]];
+        }
     }
     return ary;
 }

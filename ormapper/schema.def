@@ -2,5 +2,5 @@ Person
 	name :TEXT
         register_date :DATE
         birth_date :DATE
-        bridal_date :DATE
+        marriage_date :DATE
         death_date :DATE

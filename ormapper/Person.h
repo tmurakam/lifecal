@@ -7,14 +7,14 @@
     NSString* name;
     NSDate* register_date;
     NSDate* birth_date;
-    NSDate* bridal_date;
+    NSDate* marriage_date;
     NSDate* death_date;
 }
 
 @property(nonatomic,retain) NSString* name;
 @property(nonatomic,retain) NSDate* register_date;
 @property(nonatomic,retain) NSDate* birth_date;
-@property(nonatomic,retain) NSDate* bridal_date;
+@property(nonatomic,retain) NSDate* marriage_date;
 @property(nonatomic,retain) NSDate* death_date;
 
 + (BOOL)migrate;
